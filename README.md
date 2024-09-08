@@ -1,6 +1,6 @@
 # Task - 3
 
-# RISC-V Instruction Formats and Examples
+## RISC-V Instruction Formats and Examples
 
 ## Base Instruction Formats
 In RISC-V, instructions are grouped into various types based on their encoding and use case. The five primary instruction types are:
