@@ -25,9 +25,8 @@ RISC-V utilizes various encoding schemes for immediate values, with each instruc
 ### 1. I-Type (Immediate Instructions)
 I-Type instructions operate on an immediate value and a register. These instructions are used for arithmetic operations, logical operations, and loads.
 
-| **Field**  | 31-20     | 19-15  | 14-12  | 11-7  | 6-0    |
-|------------|-----------|--------|--------|-------|--------|
-| Immediate  | rs1       | funct3 | rd     | opcode|
+![Screenshot (526)](https://github.com/user-attachments/assets/76929f2a-0091-417d-afa8-a4cc7ff95fc8)
+
 
 ### Examples of I-Type Instructions:
 
@@ -135,9 +134,7 @@ I-Type instructions operate on an immediate value and a register. These instruct
 ### 2. R-Type (Register Instructions)
 R-Type instructions operate on two registers and store the result in a destination register. These instructions are used for arithmetic and logical operations.
 
-| **Field**  | 31-25    | 24-20  | 19-15  | 14-12  | 11-7  | 6-0    |
-|------------|----------|--------|--------|--------|-------|--------|
-| funct7     | rs2      | rs1    | funct3 | rd     | opcode|
+![Screenshot (525)](https://github.com/user-attachments/assets/85622523-42ea-4555-b426-493ec008ddcf)
 
 ### Examples of R-Type Instructions:
 
@@ -209,9 +206,7 @@ R-Type instructions operate on two registers and store the result in a destinati
 ### 3. S-Type (Store Instructions)
 S-Type instructions store data from a register into memory at an address computed from a base register and an immediate.
 
-| **Field**  | 31-25    | 24-20  | 19-15  | 14-12  | 11-7  | 6-0    |
-|------------|----------|--------|--------|--------|-------|--------|
-| Immediate  | rs2      | rs1    | funct3 | imm[4:0] | opcode|
+![Screenshot (527)](https://github.com/user-attachments/assets/38bfe64a-23cd-470c-83c4-cf07543ecf47)
 
 ### Examples of S-Type Instructions:
 
@@ -276,9 +271,7 @@ S-Type instructions store data from a register into memory at an address compute
 ### 4. **B-Type (Branch Instructions)**
 B-Type instructions are used for conditional branching. They compare two registers and, based on the result, either take a branch to a new instruction or continue execution.
 
-| **Field**  | 31-25    | 24-20  | 19-15  | 14-12  | 11-7  | 6-0    |
-|------------|----------|--------|--------|--------|-------|--------|
-| Immediate  | rs2      | rs1    | funct3 | imm[4:0] | opcode|
+![Screenshot (528)](https://github.com/user-attachments/assets/42a88bda-ff17-4d2d-8f5a-dfccf3be3a65)
 
 #### Examples of B-Type Instructions:
 
@@ -325,9 +318,8 @@ B-Type instructions are used for conditional branching. They compare two registe
 ### 5. **U-Type (Upper Immediate Instructions)**
 U-Type instructions embed a 20-bit immediate into the upper bits of the instruction and are used for operations like loading upper immediates.
 
-| **Field**  | 31-12    | 11-7  | 6-0    |
-|------------|----------|-------|--------|
-| Immediate  | rd       | opcode|
+![Screenshot (530)](https://github.com/user-attachments/assets/8820265a-bf48-4dbe-9fa8-fb5bf12ee235)
+
 
 #### Examples of U-Type Instructions:
 
@@ -370,9 +362,8 @@ U-Type instructions embed a 20-bit immediate into the upper bits of the instruct
 ### 6. **J-Type (Jump Instructions)**
 J-Type instructions are used for jumps to an immediate address relative to the current program counter (PC).
 
-| **Field**  | 31-12    | 11-7  | 6-0    |
-|------------|----------|-------|--------|
-| Immediate  | rd       | opcode|
+![Screenshot (529)](https://github.com/user-attachments/assets/1285ab5f-7755-4319-a98b-d24109b21ea6)
+
 
 #### Examples of J-Type Instructions:
 
