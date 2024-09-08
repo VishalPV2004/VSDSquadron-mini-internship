@@ -13,12 +13,12 @@ In RISC-V, instructions are grouped into various types based on their encoding a
 
 The general structure of each instruction type and its bit field allocation is shown below:
 
-- [Base Instruction Formats Image](-im-)
+![Screenshot (515)](https://github.com/user-attachments/assets/335e110f-2033-4ba3-8a87-b59fb32d3014)
 
 ## Immediate Encoding Variants
 RISC-V utilizes various encoding schemes for immediate values, with each instruction type handling immediates differently depending on the operation.
 
-- [Immediate Encoding Variants Image](-im-)
+![Screenshot (517)](https://github.com/user-attachments/assets/a5300d42-19ac-4318-8c49-9418ed9853ce)
 
 ## Instruction Types Overview
 
