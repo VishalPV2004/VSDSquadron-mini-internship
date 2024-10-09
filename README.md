@@ -57,13 +57,15 @@ This project implements a **Sequence Detector FSM** using the **VSDSquadron Mini
 
 
 
-### Project Image:
+### State Diagram:
 
 ![image](https://github.com/user-attachments/assets/da1366c4-ad3b-41ee-ab0c-876778b53e78)
 
-### State Diagram:
+### Project Diagram:
 
 
+### State Table:
+![image](https://github.com/user-attachments/assets/e759662f-50cb-438c-9df5-88cf32353c82)
 
 
 
