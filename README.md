@@ -61,17 +61,13 @@ This project implements a **Sequence Detector FSM** using the **VSDSquadron Mini
 
 ![VSDSquadron-mini-internship](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%206/Front%20view(working).jpg)
 
-### Truth Table:
-
-For simplicity, this system uses the gas sensor output and a threshold value to determine when to trigger the LED:
-
-   | Gas Sensor Value | LED Status (Alert) |
-   |------------------|--------------------|
-   | Below Threshold   | Off                |
-   | Above Threshold   | On                 |
+### State Diagram:
 
 
-### Pin Diagram for Gas Detection System Using VSDSquadron Mini RISC-V Development Board:
+
+
+
+### Pin Diagram for Sequence Detector FSM Using VSDSquadron Mini RISC-V Development Board:
 
 
 ![Gas Detection System Using VSDSquadron Mini RISC-V Development Board](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%205/Gas%20Detection%20System%20Using%20VSDSquadron%20Mini%20RISC-V%20Development%20Board.png)
@@ -80,54 +76,132 @@ For simplicity, this system uses the gas sensor output and a threshold value to 
 ### Program:
 
 ```cpp
-#include <Arduino.h> // Using Arduino-style syntax
+// Pin definitions for the 7-segment display segments
+const int segA = 0; // PC0 for segment A
+const int segB = 1; // PC1 for segment B
+const int segC = 2; // PC2 for segment C
+const int segD = 3; // PC3 for segment D
+const int segE = 4; // PC4 for segment E
+const int segF = 5; // PC5 for segment F
+const int segG = 6; // PC6 for segment G
 
-// Define the pin for the gas sensor and buzzer/LED
-#define GAS_SENSOR_PIN PC4   // Analog input pin (adjusted to PC4)
-#define ALERT_PIN PD6        // Pin for buzzer or LED
+// Button input pins
+const int btnOne = 7;  // PC7 for logic 1 button
+const int btnZero = 8; // PD1 for logic 0 button
 
-// Threshold for gas detection (adjust based on calibration)
-#define GAS_THRESHOLD 300
+// LED output pin
+const int led = 3; // PD3 for the LED
+
+// States for the FSM
+enum States {START, S1, S10, S101, S1010};
+States currentState = START; // Initialize the state machine at START
 
 void setup() {
-  // Initialize the serial monitor for debugging
-   Serial.begin(9600);
+  // Set all 7-segment display pins as output
+  pinMode(segA, OUTPUT);
+  pinMode(segB, OUTPUT);
+  pinMode(segC, OUTPUT);
+  pinMode(segD, OUTPUT);
+  pinMode(segE, OUTPUT);
+  pinMode(segF, OUTPUT);
+  pinMode(segG, OUTPUT);
+  
+  // Configure the buttons as input, with internal pull-ups activated
+  pinMode(btnOne, INPUT_PULLUP); // Logic 1 button (PC7)
+  pinMode(btnZero, INPUT_PULLUP); // Logic 0 button (PD1)
+  
+  // Set the LED pin as output
+  pinMode(led, OUTPUT);
+  
+  // Turn off the LED initially
+  digitalWrite(led, LOW);
+}
 
-   // Set the ALERT_PIN as output
-   pinMode(ALERT_PIN, OUTPUT);
+// Function to display a number (0 or 1) on the 7-segment display
+void displayDigit(int digit) {
+  switch(digit) {
+    case 0:
+      // To display '0', we light up segments A, B, C, D, E, F
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, LOW); // G remains off for '0'
+      break;
+    case 1:
+      // To display '1', we only light up segments B and C
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW); // G remains off for '1'
+      break;
+  }
+}
 
-   // Initialize the gas sensor pin (optional since it is analog)
-   pinMode(GAS_SENSOR_PIN, INPUT);
-
-   Serial.println("Gas detection system initialized...");
+// Function to check button input and return 1 for logic 1 button, 0 for logic 0 button
+int readInput() {
+  if (digitalRead(btnOne) == LOW) { // Button for logic 1 pressed
+    return 1;
+  } else if (digitalRead(btnZero) == LOW) { // Button for logic 0 pressed
+    return 0;
+  }
+  return -1; // No button pressed
 }
 
 void loop() {
-   // Read the analog value from the gas sensor
-   int gasSensorValue = analogRead(GAS_SENSOR_PIN);
-
-   // Debugging: Print the gas sensor value
-   Serial.print("Gas Sensor Value: ");
-   Serial.println(gasSensorValue);
-
-   // Check if the gas level exceeds the threshold
-   if (gasSensorValue > GAS_THRESHOLD) {
-      // If gas is detected, activate the alert (buzzer or LED)
-      digitalWrite(ALERT_PIN, HIGH);
-      Serial.println("Gas Detected! Activating alert...");
-      } 
-   else {
-         // Otherwise, turn off the alert
-         digitalWrite(ALERT_PIN, LOW);
-   }
-
-   // Small delay to prevent overwhelming the serial output
-   delay(500);
-   }
+  int input = readInput(); // Read the input from the buttons
+  
+  if (input != -1) { // If a valid input (0 or 1) is read
+    displayDigit(input); // Display the input on the 7-segment display
+    
+    // FSM state transitions based on the input
+    switch (currentState) {
+      case START:
+        if (input == 1) {
+          currentState = S1; // Move to S1 if '1' is detected
+        }
+        break;
+      case S1:
+        if (input == 0) {
+          currentState = S10; // Move to S10 if '0' follows '1'
+        } else {
+          currentState = S1; // Stay in S1 if another '1' is detected
+        }
+        break;
+      case S10:
+        if (input == 1) {
+          currentState = S101; // Move to S101 if '1' follows '10'
+        } else {
+          currentState = S1; // Reset to S1 if the sequence is broken
+        }
+        break;
+      case S101:
+        if (input == 0) {
+          currentState = S1010; // Move to S1010 if '0' follows '101'
+        } else {
+          currentState = S1; // Reset to S1 if the sequence is broken
+        }
+        break;
+      case S1010:
+        // Sequence "1010" detected, turn on the LED
+        digitalWrite(led, HIGH);
+        currentState = START; // Reset FSM for non-overlapping sequence detection
+        break;
+    }
+  } else {
+    // No valid input or sequence detected, turn off the LED
+    digitalWrite(led, LOW);
+  }
+}
 
 ```
 ### Conclusion:
-This project demonstrates the integration of an **MQ gas sensor** with the **VSDSquadron Mini board** to detect gases and alert the user through an LED indicator. This setup showcases how the RISC-V architecture and embedded systems handle real-world sensor data and control outputs in a practical application.
+This project demonstrates the implementation of a 1010 sequence detector using an Arduino-based FSM to detect a specific sequence of binary inputs provided via push buttons. The sequence is displayed on a 7-segment LED display, and an LED indicator alerts the user upon successful detection. This setup showcases how embedded systems can be used to process real-time inputs and provide immediate feedback in practical applications.
 
  
  </details>
