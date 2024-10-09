@@ -238,26 +238,32 @@ This project implements a **gas detection system** using the **VSDSquadron Mini 
    - **Positive (Anode)** to **PD6**
    - **Negative (Cathode)** to **GND**
 
-### Circuit Connection:
-   ```
-   MQ Gas Sensor       VSDSquadron Mini
-      VCC  -------->  5V
-      GND  -------->  GND
-      AO   -------->  PC4 (Analog Input)
+### Circuit Connections
 
-   LED               VSDSquadron Mini
-      +    -------->  PD6 (GPIO Pin for alert)
-      -    -------->  GND
-   ```
+#### 7-Segment Display to Arduino (PC Pins)
+```
+| 7-Segment Pin     | Arduino Pin                |
+| ----------------- | -------------------------- |
+| A (segment a)     | PC0                        |
+| B (segment b)     | PC1                        |
+| C (segment c)     | PC2                        |
+| D (segment d)     | PC3                        |
+| E (segment e)     | PC4                        |
+| F (segment f)     | PC5                        |
+| G (segment g)     | PC6                        |
 
-### Truth Table:
+#### Push Buttons for Logic Input
+| Push Button Pin   | Arduino Pin                |
+| ----------------- | -------------------------- |
+| Logic 1 Button    | PC7                        |
+| Logic 0 Button    | PD1                        |
 
-For simplicity, this system uses the gas sensor output and a threshold value to determine when to trigger the LED:
-
-   | Gas Sensor Value | LED Status (Alert) |
-   |------------------|--------------------|
-   | Below Threshold   | Off                |
-   | Above Threshold   | On                 |
+#### LED Indicator
+| LED Pin           | Arduino Pin                |
+| ----------------- | -------------------------- |
+| + (Anode)         | PD3 (GPIO Pin for alert)   |
+| - (Cathode)       | GND                        |
+```
 
 
 ### Pin Diagram for Gas Detection System Using VSDSquadron Mini RISC-V Development Board:
