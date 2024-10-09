@@ -17,43 +17,45 @@ The program is based on the RISC-V architecture and uses open-source tools to te
  <summary><h2>Task 5 : </h2>
  <br>
   <h2>
-  Gas Detection System Using VSDSquadron Mini RISC-V Development Board
+  Mealy Non-Overlapping Sequence Detector using VSDSquadron Mini Board(1010)
  </h2> </summary>
 
 
 
 ## Project Overview:
-This project implements a **gas detection system** using the **VSDSquadron Mini board**, a RISC-V based SoC development kit. The gas detection system will monitor the air for dangerous gases using a gas sensor. When gas levels exceed a set threshold, a **LED indicator** or **buzzer** is activated to alert the user. This project demonstrates reading analog data from a sensor and controlling GPIO pins using digital logic, which is simulated and built using Arduino IDE.
-
+This project implements a **Sequence Detector FSM** using the **VSDSquadron Mini board**, a RISC-V based SoC development kit. The sequence detector FSM will get inputs from two push buttons, one of them is encoded as logic 1, another as logic 0. The current number enterred is displayed using a 7-segment LED display. The inputs obtained are processed by the next state combinational logic block, the outputs corresponding to the states and the inputs are processed by the output logic block and displayed by a LED.
 ### Components Required:
 1. **VSDSquadron Mini RISC-V board**
-2. **MQ-series gas sensor** (e.g., MQ-2 or MQ-135)
-3. **1 LED** (or buzzer)
-4. **Resistors** (as needed based on the sensor)
-5. **Breadboard and jumper wires**
-6. **Arduino IDE** for development
+2. **1 LED** 
+3. **Push Buttons** 
+4. **Breadboard and jumper wires**
+5. **Arduino IDE** for development
+6. **Resistors** for current limiting
 
 ### Hardware Connections:
-- **Gas Sensor:**
-- **VCC** to **5V** pin of VSDSquadron Mini
-- **GND** to **GND** pin of VSDSquadron Mini
-- **AO** (Analog Output) to **PC4** (analog input pin)
-        
+- **7 segment:**
+  - **VCC** to **5V** pin of VSDSquadron Mini
+  - **GND** to **GND** pin of VSDSquadron Mini
+  - **COM** to **5V** pin of VSDSquadron Mini
+  - **a** to **PC0** of VSDSquadron Mini
+  - **b** to **PC1** of VSDSquadron Mini
+  - **c** to **PC2** of VSDSquadron Mini
+  - **d** to **PC3** of VSDSquadron Mini
+  - **e** to **PC4** of VSDSquadron Mini
+  - **f** to **PC5** of VSDSquadron Mini
+  - **g** to **PC6** of VSDSquadron Mini
+**All these connections are provided with a 1K current limiting resistors, which is used to ensure the safety of LEDs inside the segment display.**
 - **LED:**
-   - **Positive (Anode)** to **PD6**
+   - **Positive (Anode)** to **PD3**
    - **Negative (Cathode)** to **GND**
+- **Push Buttons - logic 1 :**
+   - One leg connected to **PD7**
+   - One leg connected to **GND** rail.
+- **Push Buttons - logic 0 :**
+   - One leg connected to **PC0**
+   - One leg connected to **GND** rail    
 
-### Circuit Connection:
-   ```
-   MQ Gas Sensor       VSDSquadron Mini
-      VCC  -------->  5V
-      GND  -------->  GND
-      AO   -------->  PC4 (Analog Input)
 
-   LED               VSDSquadron Mini
-      +    -------->  PD6 (GPIO Pin for alert)
-      -    -------->  GND
-   ```
 
 ### Project Image:
 
