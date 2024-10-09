@@ -222,21 +222,30 @@ This project demonstrates the implementation of a 1010 sequence detector using a
   </h2>
   </summary>
 
-
-### Gas Detection System Using VSDSquadron Mini RISC-V Development Board
+### 1010 Sequence Detector Using Arduino
 
 ## Project Overview:
-This project implements a **gas detection system** using the **VSDSquadron Mini board**, a RISC-V based SoC development kit. The gas detection system will monitor the air for dangerous gases using a gas sensor. When gas levels exceed a set threshold, a **LED indicator** or **buzzer** is activated to alert the user. This project demonstrates reading analog data from a sensor and controlling GPIO pins using digital logic, which is simulated and built using Arduino IDE.
+This project implements a **1010 sequence detector** using an **Arduino-based FSM (Finite State Machine)**. The system takes binary inputs from two push buttons representing logic 0 and logic 1. These inputs are displayed on a **7-segment display**, and an **LED** is used as an indicator when the 1010 sequence is successfully detected. This project demonstrates how to process real-time binary inputs and control outputs using embedded systems.
 
 ### Hardware Connections:
-- **Gas Sensor:**
-- **VCC** to **5V** pin of VSDSquadron Mini
-- **GND** to **GND** pin of VSDSquadron Mini
-- **AO** (Analog Output) to **PC4** (analog input pin)
+- **7-Segment Display:**
+   - **A** (segment a) to **PC0**
+   - **B** (segment b) to **PC1**
+   - **C** (segment c) to **PC2**
+   - **D** (segment d) to **PC3**
+   - **E** (segment e) to **PC4**
+   - **F** (segment f) to **PC5**
+   - **G** (segment g) to **PC6**
+
+- **Push Buttons:**
+   - **Logic 1 Button** to **PC7**
+   - **Logic 0 Button** to **PD1**
         
 - **LED:**
-   - **Positive (Anode)** to **PD6**
+   - **Positive (Anode)** to **PD3**
    - **Negative (Cathode)** to **GND**
+
+
 
 ### Circuit Connections
 
@@ -266,18 +275,17 @@ This project implements a **gas detection system** using the **VSDSquadron Mini 
 ```
 
 
-### Pin Diagram for Gas Detection System Using VSDSquadron Mini RISC-V Development Board:
-![Gas Detection System Using VSDSquadron Mini RISC-V Development Board](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%205/Gas%20Detection%20System%20Using%20VSDSquadron%20Mini%20RISC-V%20Development%20Board.png)
-
-
+### Pin Diagram for 1010 Sequence Detector Using Arduino:
+![image](https://github.com/user-attachments/assets/65bcf7f5-149b-4fb6-9829-0886909a0b81)
 
 ### Project Image:
-![VSDSquadron-mini-internship](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%206/Front%20view(working).jpg)
-
+![1010 Sequence Detector](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%206/Front%20view(working).jpg)
 
 ### Project Video:
 
-[Gas Detection System Using VSDSquadron Mini RISC-V Development Board Video](https://drive.google.com/file/d/1HNqd76ONLBzgRXruZAOvVshFZfznvdmb/view?usp=sharing)
+[1010 Sequence Detector Using Arduino Video](https://drive.google.com/file/d/1HNqd76ONLBzgRXruZAOvVshFZfznvdmb/view?usp=sharing)
+
+</details>
 
 
 
