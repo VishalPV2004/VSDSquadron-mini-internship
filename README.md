@@ -4,12 +4,12 @@ The program is based on the RISC-V architecture and uses open-source tools to te
 
 ##  Basic Details
 
-**Name:** Prawin Kumar J S   
-**College:** RajaLakshmi Institute of Technology, Chennai
+**Name:** VISHAL P V  
+**College:** RMK ENGINEERING COLLEGE, Chennai
 
-**Email ID:** prawink554@gmail.com  
-**GitHub Profile:** [prawinkumarjs](https://github.com/Prawinkumarjs)  
-**LinkedIN Profile:** [prawin-kumar-j-s](www.linkedin.com/in/prawin-kumar-j-s)
+**Email ID:** vishal2020vvk@gmail.com  
+**GitHub Profile:** [VISHAL P V](https://github.com/VishalPV2004)  
+**LinkedIN Profile:** [VISHAL P V](https://www.linkedin.com/in/vishalpv2004/)
 
 ----------------------------------------------------------------------------------------------------------------
 
