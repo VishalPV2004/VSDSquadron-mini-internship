@@ -72,7 +72,8 @@ This project implements a **Sequence Detector FSM** using the **VSDSquadron Mini
 ### Pin Diagram for Sequence Detector FSM Using VSDSquadron Mini RISC-V Development Board:
 
 
-![Gas Detection System Using VSDSquadron Mini RISC-V Development Board](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%205/Gas%20Detection%20System%20Using%20VSDSquadron%20Mini%20RISC-V%20Development%20Board.png)
+![image](https://github.com/user-attachments/assets/65bcf7f5-149b-4fb6-9829-0886909a0b81)
+
    
 
 ### Program:
