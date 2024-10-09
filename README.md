@@ -1,381 +1,529 @@
-# Task - 3
+#  VSDSquadron Research Internship 2024
 
-## RISC-V Instruction Formats and Examples
+The program is based on the RISC-V architecture and uses open-source tools to teach people about VLSI chip design and RISC-V. The instructor for this internship is Kunal Ghosh Sir.
 
-## Base Instruction Formats
-In RISC-V, instructions are grouped into various types based on their encoding and use case. The five primary instruction types are:
-- **R-Type (Register)**
-- **I-Type (Immediate)**
-- **S-Type (Store)**
-- **B-Type (Branch)**
-- **U-Type (Upper Immediate)**
-- **J-Type (Jump)**
+##  Basic Details
 
-The general structure of each instruction type and its bit field allocation is shown below:
+**Name:** Prawin Kumar J S   
+**College:** RajaLakshmi Institute of Technology, Chennai
 
-![Screenshot (515)](https://github.com/user-attachments/assets/335e110f-2033-4ba3-8a87-b59fb32d3014)
+**Email ID:** prawink554@gmail.com  
+**GitHub Profile:** [prawinkumarjs](https://github.com/Prawinkumarjs)  
+**LinkedIN Profile:** [prawin-kumar-j-s](www.linkedin.com/in/prawin-kumar-j-s)
 
-## Immediate Encoding Variants
-RISC-V utilizes various encoding schemes for immediate values, with each instruction type handling immediates differently depending on the operation.
+----------------------------------------------------------------------------------------------------------------
 
-![Screenshot (517)](https://github.com/user-attachments/assets/a5300d42-19ac-4318-8c49-9418ed9853ce)
+<details>
 
-## Instruction Types Overview
+<summary><h3>Task 1: </h3> 
+<h2>Installation of RISC-V toolchain using VDI. Uploading the snapshot of compiled C code and RISC-V Objdmp on the GitHub repo</h2>
+</summary>
 
-### 1. I-Type (Immediate Instructions)
-I-Type instructions operate on an immediate value and a register. These instructions are used for arithmetic operations, logical operations, and loads.
+The task 1 of the internship includes the following
+- Installation of RISC-V toolchain using VDI.
+- C Program for sum from one to n.
+- Checking the result of C code
+- RISC-V Simulator for compiling and running the code
+- Assembly language
 
-![Screenshot (526)](https://github.com/user-attachments/assets/76929f2a-0091-417d-afa8-a4cc7ff95fc8)
+Overall, it is about writing the C code for sum from one to n followed by compiling and running by RISC-V Simulator.
 
+ The steps to be followed are:
+ 
+#### Step 1: Installation of Oracle VirtualBox.
 
-### Examples of I-Type Instructions:
+The VirtualBox is an open source software and an operating system which runs as a physical computer inside the pc/laptop. 
 
-### i. ADDI (Add Immediate)
-- **Operation**: rd = rs1 + immediate
-- **funct3**: 000
-- **opcode**: 0010011
+![Screenshot (567)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/48ae5d97-0ce1-40bd-9403-e60d255d4758)
 
-**Encoding Example:**
+#### Step 2: Open the terminal inside the VirtualBox
 
+![Terminal inside the VM](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/5e831292-ae27-4409-b6d4-dc98b50fb88a)
 
-**Operation:** rd = rs1 + immediate
+#### Step 3: To open the editor named leafpad for writing C code.
 
-**Encoding:**
+![Screenshot (568)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/baf5e27b-ee8b-42a9-b2c7-e40bb88c33d8)
+ Note for the above command explanation:
+ - command line cd is to check for home directory.
+ - leafpad to open editor.
+ - sum_one_to_one is the file name for C code to be written in editor.
 
-- **Immediate:** 000000000010
-- **rs1:** 00001
-- **funct3:** 000
-- **rd:** 00101
-- **opcode:** 0010011
 
-**32-bit Encoding:** 000000000010 00001 000 00101 0010011
+#### Step 4: Write the C program for sum of one to n in the terminal 
 
-### ii. SLTI (Set Less than Immediate)
+The leafpad editor opened, write the simple c code for sum of 1 to n,
 
-- **Operation**: rd = (rs1 < immediate) ? 1 : 0
-- **funct3**: 010
-- **opcode**: 0010011
+![Screenshot (570)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/6e565127-674e-47c4-8c48-f142e319ebce)
 
-**Encoding Example:**
+Save the file in the editor
 
-**Operation:** rd = (rs1 < immediate) ? 1 : 0
 
-**Encoding:**
+![C Code for sum from one to n](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/37e5d37e-7b55-49ce-8aef-70d3d9f57d0e)
 
-- **Immediate:** 000000000010
-- **rs1:** 00001
-- **funct3:** 010
-- **rd:** 00101
-- **opcode:** 0010011
 
-**32-bit Encoding:** 000000000010 00001 010 00101 0010011
+#### Step 5: To check the result of C code
 
+- Type the below command line to ensure the file is saved.
+  
+![WhatsApp Image 2024-06-23 at 11 39 36 PM](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/c70488ff-78d7-4c14-910c-28feea698aca)
 
-### iii. ANDI (AND Immediate)
-- **Operation**: rd = rs1 & immediate
-- **funct3**: 111
-- **opcode**: 0010011
+- This ./a.out command will generate the output 
 
-**Encoding Example:**
+![WhatsApp Image 2024-06-23 at 11 39 36 PM (1)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/093bd684-20dc-4a5d-bdbf-57e5aa9de063)
 
-**Operation:** rd = rs1 & immediate
 
-**Encoding:**
 
-- **Immediate:** 0000000001111
-- **rs1:** 00001
-- **funct3:** 111
-- **rd:** 00101
-- **opcode:** 0010011
+- The sum for 1 to 5 is 15 which is also verified using calculator
 
-**32-bit Encoding:** 0000000001111 00001 111 00101 0010011
 
+![with cc](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/42492408-96b8-4275-95ae-c7966b65854a)
 
+#### Step 6: Compile and run the C code using RISC-V Simulator 
 
-### iv. ORI (OR Immediate)
-- **Operation**: rd = rs1 | immediate
-- **funct3**: 110
-- **opcode**: 0010011
+- Compile the code with RISC-V compiler by using the command line
+  
+![Screenshot (572)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/db9d65fc-a0bd-4104-9d12-d77d19614d07)
 
-**Encoding Example:**
-**Operation:** rd = rs1 | immediate
+- Run the C code by RISC-V Simulator using below
 
-**Encoding:**
+![Screenshot (573)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/cd4c2428-a270-4d1e-a75c-0b09c212ecd2)
 
-- **Immediate:** 0000000001111
-- **rs1:** 00001
-- **funct3:** 110
-- **rd:** 00101
-- **opcode:** 0010011
 
-**32-bit Encoding:** 0000000001111 00001 110 00101 0010011
 
+![compile riscv with gcc![Uploading Screenshot (572).png…]()
+ ](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/dbf0af7d-fe05-4547-a280-7b710e39f924)
 
-### v. XORI (XOR Immediate)
-- **Operation**: rd = rs1 ^ immediate
-- **funct3**: 100
-- **opcode**: 0010011
 
-**Encoding Example:**
+#### Step 7: Assembly code 
+- Command line for generating the assembly code is:
 
-**Operation:** rd = rs1 ^ immediate
+![WhatsApp Image 2024-06-24 at 12 08 16 AM](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/0850193a-d680-4772-a4b8-52e08c05c943)
 
-**Encoding:**
+- The Assembly codes:
 
-- **Immediate:** 0000000001111
-- **rs1:** 00001
-- **funct3:** 100
-- **rd:** 00101
-- **opcode:** 0010011
+![assembly code of C code](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/0ce26ef8-3b1e-41dd-8830-217cddd2d7fc)
 
-**32-bit Encoding:** 0000000001111 00001 100 00101 0010011
 
+- After that type out this line;
 
-### 2. R-Type (Register Instructions)
-R-Type instructions operate on two registers and store the result in a destination register. These instructions are used for arithmetic and logical operations.
+![WhatsApp Image 2024-06-24 at 12 08 16 AM (1)](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/2cc69a0e-c167-4320-bf89-a7910f76ac37)
 
-![Screenshot (525)](https://github.com/user-attachments/assets/85622523-42ea-4555-b426-493ec008ddcf)
+#### Step 8: Search the main() 
 
-### Examples of R-Type Instructions:
+![main section of assembly code](https://github.com/EkthaReddy/vsdsquadron-mini-internship/assets/152515939/053a0a17-79c8-48af-8227-f59f7dd6786e)
 
-#### **ADD** (Add)
-- **Operation**: rd = rs1 + rs2
-- **funct3**: 000
-- **funct7**: 0000000
-- **opcode**: 0110011
+</details>
 
-**Encoding Example:**
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Operation:** rd = rs1 + rs2
+<details>
+<summary>
+ <h3>Task2:</h3>
+</b> <h2>Performing SPIKE Simulation and Debugging a simple C code with Interactive Debugging Mode using Spike</h2></summary> 
+  
+### What is SPIKE in RISCV?
+> * A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.  
+> * Spike is a free, open-source C++ simulator for the RISC-V ISA that models a RISC-V core and cache system. It can be used to run programs and a Linux kernel, and can be a starting point for running software on a RISC-V target.  
+  
+### What is pk (Proxy Kernel)?  
+> * The RISC-V Proxy Kernel, pk , is a lightweight application execution environment that can host statically-linked RISC-V ELF binaries.  
+> * A Proxy Kernel in the RISC-V ecosystem simplifies the interaction between complex hardware and the software running on it, making it easier to manage, test, and develop software and hardware projects.  
+ 
 
-**Encoding:**
+### Testing the SPIKE Simulator  
+The target is to run the ```sum1ton.c``` code using both ```gcc compiler``` and ```riscv compiler```, and both of the compiler must display the same output on the terminal. So to compile the code using **gcc compiler**, use the following command:  
+```
+gcc sum1ton.c  
+./a.out
+```
+And to compile the code using **riscv compiler**, use the following command:  
+```
+spike pk sum1ton.o
+```  
+![Spike Simulation](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/1.png)
 
-- **funct7:** 0000000
-- **rs2:** 00010
-- **rs1:** 00001
-- **funct3:** 000
-- **rd:** 00101
-- **opcode:** 0110011
+#### Following are the snapshots of RISCV Objdump with **-O1** and **-Ofast** options  
+RISCV Objdump with -O1 option  
 
-**32-bit Encoding:** 0000000 00010 00001 000 00101 0110011
+![Objdump in -O1](https://github.com/chanduputta/vsdsquadronmini-Research-internship/blob/main/Task2/Objdump%20in%20-O1.png)
 
+RISCV Objdump with -Ofast option  
 
-#### **SUB** (Subtract)
-- **Operation**: rd = rs1 - rs2
-- **funct3**: 000
-- **funct7**: 0100000
-- **opcode**: 0110011
+![Objdump in -Ofast](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/3.png)
 
-**Encoding Example:**
+### Debugging the Assembly Language Program of  ```sum1ton.c```  
+* Open the **Objdump** of code by using the following command  
+```
+$ riscv64-unknown-elf-objdump -d sum1ton.o | less  
+```
+* Open the debugger in another terminal by using the following command  
+```
+$ spike -d pk sum1ton.o
+```
+* The debugger will be opened in the terminal. Now, debugging operations can be performed as shown in the following snapshot.
 
-**Operation:** rd = rs1 - rs2
+![Debugging](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/2.png) 
 
-**Encoding:**
 
-- **funct7:** 0100000
-- **rs2:** 00010
-- **rs1:** 00001
-- **funct3:** 000
-- **rd:** 00101
-- **opcode:** 0110011
+================================================================================================================
 
-**32-bit Encoding:** 0100000 00010 00001 000 00101 0110011
 
+<details>
+ <summary> 
+  <h2>
+   Digital Design Application - RISC-V Simple Counter Program
+ </h2> 
+ </summary>
 
-#### **AND** (Logical AND)
-- **Operation**: rd = rs1 & rs2
-- **funct3**: 111
-- **funct7**: 0000000
-- **opcode**: 0110011
+This repository contains a simple RISC-V counter program written in C. Follow the instructions below to set up, build, and run the program using the RISC-V toolchain, Spike simulator, and proxy kernel (pk).
 
-**Encoding Example:**
+## Prerequisites
 
-**Operation:** rd = rs1 & rs2
+- **RISC-V Toolchain**: For compiling RISC-V code.
+- **Spike Simulator**: To run RISC-V binaries.
+- **Proxy Kernel (pk)**: Provides a runtime environment for running RISC-V binaries.
 
-**Encoding:**
+## Step-by-Step Instructions
 
-- **funct7:** 0000000
-- **rs2:** 00010
-- **rs1:** 00001
-- **funct3:** 111
-- **rd:** 00101
-- **opcode:** 0110011
+### 1. Clone the Repository
 
-**32-bit Encoding:** 0000000 00010 00001 111 00101 0110011
+Clone this repository to your local machine:
 
-### 3. S-Type (Store Instructions)
-S-Type instructions store data from a register into memory at an address computed from a base register and an immediate.
+```sh
+git clone https://github.com/Prawinkumarjs/VSDSquadron-mini-internship.git
+cd VSDSquadron-mini-internship
+```
 
-![Screenshot (527)](https://github.com/user-attachments/assets/38bfe64a-23cd-470c-83c4-cf07543ecf47)
+### 2. Install the RISC-V Toolchain
 
-### Examples of S-Type Instructions:
+Follow the [installation instructions](https://github.com/riscv/riscv-gnu-toolchain) for your platform. For example, on Ubuntu:
 
-#### **SW** (Store Word)
-- **Operation**: mem[rs1 + immediate] = rs2
-- **funct3**: 010
-- **opcode**: 0100011
+```sh
+sudo apt-get update
+sudo apt-get install gcc-riscv64-linux-gnu
+```
 
-**Encoding Example:**
+### 3. Install Spike and pk
 
-**Operation:** mem[rs1 + immediate] = rs2
+Follow the installation instructions for Spike and pk. Example installation for Spike:
 
-**Encoding:**
+```sh
+# Clone Spike repository
+git clone https://github.com/riscv/riscv-isa-sim.git
+cd riscv-isa-sim
+mkdir build
+cd build
+../configure --prefix=/opt/riscv
+make
+make install
+```
 
-- **Immediate:** 0000000 00010
-- **rs2:** 00101
-- **rs1:** 00001
-- **funct3:** 010
-- **opcode:** 0100011
+For pk:
 
-**32-bit Encoding:** 0000000 00101 00001 010 00100 0100011
+```sh
+# Clone pk repository
+git clone https://github.com/riscv/riscv-pk.git
+cd riscv-pk
+mkdir build
+cd build
+../configure --prefix=/opt/riscv
+make
+make install
+```
 
+Ensure `/opt/riscv/bin` is in your `PATH`.
 
-#### **SB** (Store Byte)
-- **Operation**: mem[rs1 + immediate] = rs2
-- **funct3**: 000
-- **opcode**: 0100011
+### 4. Create the Source File
 
-**Encoding Example:**
+Create the `simplecounter.c` source file using Leafpad:
 
-**Operation:** mem[rs1 + immediate] = rs2
+```sh
+leafpad simplecounter.c
+```
 
-**Encoding:**
+In Leafpad, enter the following code:
 
-- **Immediate:** 0000000 00010
-- **rs2:** 00101
-- **rs1:** 00001
-- **funct3:** 000
-- **opcode:** 0100011
+```c
+#include <stdio.h>
+#include <unistd.h>  // For usleep() in POSIX systems
 
-**32-bit Encoding:** 0000000 00101 00001 000 00100 0100011
+int main() {
+    int counter = 0;
+    int end_value = 10;  // Set the end value
 
+    printf("Simple Digital Counter\n");
 
-#### **SH** (Store Halfword)
-- **Operation**: mem[rs1 + immediate] = rs2
-- **funct3**: 001
-- **opcode**: 0100011
+    while (counter <= end_value) {  // Loop until counter reaches end value
+        printf("Counter: %d\n", counter);
+        counter++;  // Increment the counter
+        usleep(1000000);  // Wait for 1 second (1,000,000 microseconds)
+    }
 
-**Encoding Example:**
-**Operation:** mem[rs1 + immediate] = rs2
+    printf("Counter reached the end value of %d. Stopping.\n", end_value);
 
-**Encoding:**
+    return 0;
+}
+```
+![1](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/1.png)
 
-- **Immediate:** 0000000 00010
-- **rs2:** 00101
-- **rs1:** 00001
-- **funct3:** 001
-- **opcode:** 0100011
+Save and close Leafpad.
 
-**32-bit Encoding:** 0000000 00101 00001 001 00100 0100011
+### 5. Compile the Program
 
-### 4. **B-Type (Branch Instructions)**
-B-Type instructions are used for conditional branching. They compare two registers and, based on the result, either take a branch to a new instruction or continue execution.
+Compile and link the source code into an executable:
 
-![Screenshot (528)](https://github.com/user-attachments/assets/42a88bda-ff17-4d2d-8f5a-dfccf3be3a65)
+```sh
+    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o simplecounter simplecounter.c
+```
+![3](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/3.png)
 
-#### Examples of B-Type Instructions:
+### 6. View the Object File (Optional)
 
-#### **BEQ** (Branch if Equal)
-- **Operation**: if (rs1 == rs2) pc = pc + immediate
-- **funct3**: 000
-- **opcode**: 1100011
+If you need to view the object file, first compile to object file:
 
-**Encoding Example:**
+```sh
+    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -c simplecounter.c -o simplecounter.o
+```
+![3](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/3.png)
+To view the object file, use:
 
-**Operation:** if (rs1 == rs2) pc = pc + immediate
+ ```sh
+    riscv64-unknown-elf-objdump -d simplecounter.o
+```
+![4](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/4.png)
+### 7. Run the Program
 
-**Encoding:**
+To execute the compiled program with Spike and pk, use:
 
-- **Immediate:** 0000000
-- **rs2:** 00010
-- **rs1:** 00001
-- **funct3:** 000
-- **opcode:** 1100011
+ ```sh
+    spike pk simplecounter
+```
+![5](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/5.png)
 
-**32-bit Encoding:** 0000000 00010 00001 000 offset 1100011
+### 8. Debug the Program (Optional)
 
+For detailed debugging output, run:
 
-#### **BNE** (Branch if Not Equal)
-- **Operation**: if (rs1 != rs2) pc = pc + immediate
-- **funct3**: 001
-- **opcode**: 1100011
+```sh
+    spike -d pk simplecounter
+```
+![6](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/6.png)
 
-**Encoding Example:**
+### 9. View the File Content (Optional)
 
-**Operation:** if (rs1 != rs2) pc = pc + immediate
+To view the content of the source file or object file, use `cat`:
 
-**Encoding:**
+ ```sh
+    cat simplecounter.c
+ ```
 
-- **Immediate:** 0000000
-- **rs2:** 00010
-- **rs1:** 00001
-- **funct3:** 001
-- **opcode:** 1100011
+```sh
+    cat simplecounter.o
+```
+![2](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/2.png)
 
-**32-bit Encoding:** 0000000 00010 00001 001 offset 1100011
+### Example Output
+When running the program, you should see:
 
+```
+Simple Digital Counter
+Counter: 0
+Counter: 1
+Counter: 2
+Counter: 3
+Counter: 4
+Counter: 5
+Counter: 6
+Counter: 7
+Counter: 8
+Counter: 9
+Counter: 10
+Counter reached the end value of 10. Stopping.
+```
+![Example](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%202/Digital%20Design%20Application%20-%20Simple%20Counter%20using%20C%20programming/1.png)
 
-### 5. **U-Type (Upper Immediate Instructions)**
-U-Type instructions embed a 20-bit immediate into the upper bits of the instruction and are used for operations like loading upper immediates.
+ ### Troubleshooting
 
-![Screenshot (530)](https://github.com/user-attachments/assets/8820265a-bf48-4dbe-9fa8-fb5bf12ee235)
+- **Compilation Issues**: Ensure the RISC-V toolchain is properly installed and configured.
+- **Execution Issues**: Verify that `spike` and `pk` are correctly                                                    installed and accessible in your `PATH`.                                                
+- **Path Problems**: Ensure that all necessary binaries (e.g., `spike`, `pk`) are in your system’s `PATH`, or provide full paths to these executables.
+</details>
 
+</details>
 
-#### Examples of U-Type Instructions:
+----------------------------------------
 
-#### **LUI** (Load Upper Immediate)
-- **Operation**: rd = immediate << 12
-- **opcode**: 0110111
+<details><summary>
+ <h2>
+  Task 3: 
+ </h2><br>
+ 
+<h2> RISC-V Instruction Types & 32-Bit Instruction Code </h2>
+</summary>
 
-**Encoding Example:**
+The RISC-V instruction set architecture (ISA) defines several types of instructions, each with a specific format. Below is a summary of the main instruction types:
 
 
-**Operation:** rd = immediate << 12
+![RISC-V](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%203/RISC-V%20Instruction.png)
 
-**Encoding:**
+## R-Type (Register-Register)
 
-- **Immediate:** 00010010001101000101
-- **rd:** 00101
-- **opcode:** 0110111
+- **Purpose**: Used for operations that involve two source registers and one destination register.
+- **Fields**:
+  - `opcode`: Operation code
+  - `rd`: Destination register
+  - `func3`: Function modifier
+  - `rs1`: Source register 1
+  - `rs2`: Source register 2
+  - `func7`: Function modifier (additional)
 
-**32-bit Encoding:** 00010010001101000101 00101 0110111
+- **Example**: `add x1, x2, x3`
 
+## I-Type (Immediate)
 
-#### **AUIPC (Add Upper Immediate to PC)**
-- **Operation**: rd = pc + (immediate << 12)
-- **opcode**: 0010111
+- **Purpose**: Used for operations with one source register and an immediate value, including loads.
+- **Fields**:
+  - `opcode`: Operation code
+  - `rd`: Destination register
+  - `func3`: Function modifier
+  - `rs1`: Source register
+  - `imm[11:0]`: Immediate value
 
-**Encoding Example:**
+- **Example**: `addi x1, x2, 10`
 
+## S-Type (Store)
 
-**Operation:** rd = pc + (immediate << 12)
+- **Purpose**: Used for store instructions, which write a register's value to memory.
+- **Fields**:
+  - `opcode`: Operation code
+  - `imm[11:5]`: Immediate value (upper 7 bits)
+  - `func3`: Function modifier
+  - `rs1`: Source register (base address)
+  - `rs2`: Source register (data to store)
+  - `imm[4:0]`: Immediate value (lower 5 bits)
 
-**Encoding:**
+- **Example**: `sw x2, 0(x1)`
 
-- **Immediate:** 00010010001101000101
-- **rd:** 00101
-- **opcode:** 0010111
+## B-Type (Branch)
 
-**32-bit Encoding:** 00010010001101000101 00101 0010111
+- **Purpose**: Used for conditional branch instructions.
+- **Fields**:
+  - `opcode`: Operation code
+  - `imm[12]`: Immediate value (bit 12)
+  - `imm[10:5]`: Immediate value (bits 10 to 5)
+  - `func3`: Function modifier
+  - `rs1`: Source register 1
+  - `rs2`: Source register 2
+  - `imm[4:1]`: Immediate value (bits 4 to 1)
+  - `imm[11]`: Immediate value (bit 11)
 
+- **Example**: `beq x1, x2, label`
 
-### 6. **J-Type (Jump Instructions)**
-J-Type instructions are used for jumps to an immediate address relative to the current program counter (PC).
+## U-Type (Upper Immediate)
 
-![Screenshot (529)](https://github.com/user-attachments/assets/1285ab5f-7755-4319-a98b-d24109b21ea6)
+- **Purpose**: Used for instructions that operate with a large immediate value.
+- **Fields**:
+  - `opcode`: Operation code
+  - `rd`: Destination register
+  - `imm[31:12]`: Immediate value
 
+- **Example**: `lui x1, 0x10000`
 
-#### Examples of J-Type Instructions:
+## J-Type (Jump)
 
-#### **JAL** (Jump and Link)
-- **Operation**: rd = pc + 4; pc = pc + immediate
-- **opcode**: 1101111
+- **Purpose**: Used for jump instructions with a large immediate value.
+- **Fields**:
+  - `opcode`: Operation code
+  - `rd`: Destination register
+  - `imm[20]`: Immediate value (bit 20)
+  - `imm[10:1]`: Immediate value (bits 10 to 1)
+  - `imm[11]`: Immediate value (bit 11)
+  - `imm[19:12]`: Immediate value (bits 19 to 12)
 
-**Encoding Example:**
+- **Example**: `jal x1, label`
 
-**Operation:** rd = pc + 4; pc = pc + immediate
+# 32-bit Instruction Codes in RISC-V Instruction Type Format
 
-**Encoding:**
+1. **`addi x1, x2, 10`**  
+   - **Instruction Format**: I-type  
+   - **Binary Encoding**: `000000000010 00010 000 00001 0010011`  
+   - **32-bit Instruction Code**: `0x00210093`
+
+2. **`li x5, 0x0`**  
+   - **Instruction Format**: I-type (using `addi x5, x0, 0x0`)  
+   - **Binary Encoding**: `000000000000 00000 000 00101 0010011`  
+   - **32-bit Instruction Code**: `0x00000293`
+
+3. **`lui x10, 0x20000`**  
+   - **Instruction Format**: U-type  
+   - **Binary Encoding**: `00100000000000000000 01010 0110111`  
+   - **32-bit Instruction Code**: `0x20000537`
+
+4. **`mv x1, x2`**  
+   - **Instruction Format**: I-type (using `addi x1, x2, 0`)  
+   - **Binary Encoding**: `000000000000 00010 000 00001 0010011`  
+   - **32-bit Instruction Code**: `0x00010093`
+
+5. **`sw x5, 0(x10)`**  
+   - **Instruction Format**: S-type  
+   - **Binary Encoding**: `0000000 00101 01010 010 00000 0100011`  
+   - **32-bit Instruction Code**: `0x0050a023`
+
+6. **`lw x5, 0(x10)`**  
+   - **Instruction Format**: I-type  
+   - **Binary Encoding**: `000000000000 01010 010 00101 0000011`  
+   - **32-bit Instruction Code**: `0x0000a283`
+
+7. **`jal x0, 0x100`**  
+   - **Instruction Format**: J-type  
+   - **Binary Encoding**: `00000000000100000000 00000 1101111`  
+   - **32-bit Instruction Code**: `0x0000086f`
+
+8. **`beq x1, x2, label`**  
+   - **Instruction Format**: B-type (assuming offset is `0x4`)  
+   - **Binary Encoding**: `000000 00010 00001 000 00010 1100011`  
+   - **32-bit Instruction Code**: `0x00210063`
+
+9. **`bne x1, x3, label`**  
+   - **Instruction Format**: B-type (assuming offset is `0x4`)  
+   - **Binary Encoding**: `000000 00011 00001 001 00010 1100011`  
+   - **32-bit Instruction Code**: `0x00310063`
+
+10. **`slli x5, x1, 1`**  
+    - **Instruction Format**: I-type  
+    - **Binary Encoding**: `0000000 00001 00101 001 00001 0010011`  
+    - **32-bit Instruction Code**: `0x00109093`
+
+11. **`srli x6, x2, 2`**  
+    - **Instruction Format**: I-type  
+    - **Binary Encoding**: `0000000 00010 00110 101 00010 0010011`  
+    - **32-bit Instruction Code**: `0x0022b093`
+
+12. **`and x3, x4, x5`**  
+    - **Instruction Format**: R-type  
+    - **Binary Encoding**: `0000000 00101 00100 111 00011 0110011`  
+    - **32-bit Instruction Code**: `0x005201b3`
+
+13. **`or x2, x3, x4`**  
+    - **Instruction Format**: R-type  
+    - **Binary Encoding**: `0000000 00100 00011 110 00010 0110011`  
+    - **32-bit Instruction Code**: `0x004181b3`
+
+14. **`sub x3, x5, x2`**  
+    - **Instruction Format**: R-type  
+    - **Binary Encoding**: `0100000 00010 00101 000 00011 0110011`  
+    - **32-bit Instruction Code**: `0x402282b3`
+
+15. **`xor x1, x2, x3`**  
+    - **Instruction Format**: R-type  
+    - **Binary Encoding**: `0000000 00011 00010 100 00001 0110011`  
+    - **32-bit Instruction Code**: `0x003100b3`
+
+
+
+</details>
+
+-------------------------------------------------------------------------
 
 - **Immediate:** 00000000000000000000
 - **rd:** 00101
