@@ -279,11 +279,11 @@ This project implements a **1010 sequence detector** using an **Arduino-based FS
 ![image](https://github.com/user-attachments/assets/65bcf7f5-149b-4fb6-9829-0886909a0b81)
 
 ### Project Image:
-![1010 Sequence Detector](https://github.com/Prawinkumarjs/VSDSquadron-mini-internship/blob/main/Task%206/Front%20view(working).jpg)
+![1010 Sequence Detector](![WhatsApp Image 2024-10-13 at 15 14 04_c54b3129](https://github.com/user-attachments/assets/aa0b57c2-caa5-4713-96f1-46e712e53a12))
 
 ### Project Video:
 
-[1010 Sequence Detector Using Arduino Video](https://drive.google.com/file/d/1HNqd76ONLBzgRXruZAOvVshFZfznvdmb/view?usp=sharing)
+[1010 Sequence Detector]([https://drive.google.com/file/d/1HNqd76ONLBzgRXruZAOvVshFZfznvdmb/view?usp=sharing](https://drive.google.com/file/d/1nImKBqoWEgGRDYQV5DstElSmUVdOE7vy/view?usp=sharing))
 
 </details>
 
